@@ -5,7 +5,7 @@
     }\
 }\
 
-#define MAX_STRING_SIZE 10000
+#define MAX_STRING_SIZE 1000
 #define SWAP(x,y,t) ((t) = (x), (x) = (y), (y) = (t))
 
 #include <stdio.h>
@@ -15,15 +15,12 @@
 int* make1DArray(void);
 
 int main(void){
-
     int count;
-    scanf("%d",&count);
+    scanf("%d\n",&count);
     for(int i = 0; i < count; i++){
         int* numbers = make1DArray();
         printf("%d\n",numbers[7]);
-        free(numbers);
     }
-
     return 0;
 }
 int* make1DArray(void) {
@@ -49,6 +46,5 @@ int* make1DArray(void) {
         }
         SWAP(p[i], p[index], temp);
     }
-
     return p;
 }
