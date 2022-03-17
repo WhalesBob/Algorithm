@@ -12,11 +12,8 @@ public class Palindrome {
     }
     static boolean is_Palindrome_Number(long x){
         String reverseStr = new StringBuilder(Long.toString(x)).reverse().toString();
-        if(reverseStr.equals(Long.toString(x))){
-            return true;
-        }else{
-            return false;
-        }
+
+        return reverseStr.equals(Long.toString(x));
     }
     static boolean is_Palindrome(String s){
 
@@ -29,10 +26,6 @@ public class Palindrome {
             }
         }
         String reverse = new StringBuilder(builder.toString()).reverse().toString();
-        if(builder.toString().equals(reverse)){
-            return true;
-        }else{
-            return false;
-        }
+        return builder.toString().equals(reverse);
     }
 }
