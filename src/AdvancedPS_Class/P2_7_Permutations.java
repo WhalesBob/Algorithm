@@ -1,6 +1,5 @@
 package AdvancedPS_Class;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class P2_7_Permutations {
@@ -31,7 +30,9 @@ public class P2_7_Permutations {
     static void makePermutation(Integer[] plusArray, ArrayList<Integer> array, int howManyLeft,int index){
 
         if(howManyLeft == 0){
-            permutationArray.add(plusArray);
+            if(!includeInList(plusArray)){
+                permutationArray.add(plusArray);
+            }
         }else{
             for(int i = 0; i < howManyLeft; i++){
                 ArrayList<Integer> newList = (ArrayList<Integer>)array.clone();
@@ -40,5 +41,13 @@ public class P2_7_Permutations {
                 makePermutation(subArray,newList,(howManyLeft-1),(index+1));
             }
         }
+    }
+    static boolean includeInList(Integer[] array){
+        for(int i = 0; i < permutationArray.size(); i++){
+            if(Arrays.equals(permutationArray.get(i),array)){
+                return true;
+            }
+        }
+        return false;
     }
 }
