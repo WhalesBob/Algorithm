@@ -13,8 +13,8 @@ public class P2_7_Permutations {
         Integer[] plusArray = new Integer[numberArray.size()];
 
         makePermutation(plusArray,numberArray,numberArray.size(),0);
-        for(int i = 0; i < permutationArray.size(); i++){
-            System.out.println(Arrays.toString(permutationArray.get(i)));
+        for (Integer[] integers : permutationArray) {
+            System.out.println(Arrays.toString(integers));
         }
     }
 
@@ -43,8 +43,8 @@ public class P2_7_Permutations {
         }
     }
     static boolean includeInList(Integer[] array){
-        for(int i = 0; i < permutationArray.size(); i++){
-            if(Arrays.equals(permutationArray.get(i),array)){
+        for (Integer[] integers : permutationArray) {
+            if (Arrays.equals(integers, array)) {
                 return true;
             }
         }

@@ -13,7 +13,7 @@ public class P2_2_SwapNode {
         String input = scanner.nextLine();
         StringTokenizer token = new StringTokenizer(input," ");
         if(!token.hasMoreTokens()){
-            System.out.println("");
+            System.out.println();
             return;
         }
         while(token.hasMoreTokens()){

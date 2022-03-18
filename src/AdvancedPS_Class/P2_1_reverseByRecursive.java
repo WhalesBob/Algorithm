@@ -11,7 +11,6 @@ public class P2_1_reverseByRecursive {
         System.out.println(forRecursive.printReverse(inputString)); // 출력
     }
     String printReverse(String str){
-        P2_1_reverseByRecursive forRecursive = new P2_1_reverseByRecursive();
         if(str.equals("")){
             return str;
         }else{

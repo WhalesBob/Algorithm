@@ -8,7 +8,7 @@ public class P2_5_ClimbingStairs {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         cache = new int[n]; // 45개 까지 커버 가능해야 하므로, 전역변수 로 두고 배열을 만들어 저장하는 식으로 했습니다!
-        System.out.println(climbingStairs(n));;
+        System.out.println(climbingStairs(n));
     }
     static int climbingStairs(int n){
         // 10개의 계단 오르는 경우의 수 : (어떻게든 9개 오르고 한칸 오르기) + (어떻게든 8개 오르고 두칸 오르기) -> 피보나치 수열!
