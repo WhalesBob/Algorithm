@@ -1,5 +1,4 @@
 package AdvancedPS_Class;
-
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -9,17 +8,14 @@ public class P3_2_ClimbingStairsByMinimumCost {
         String input = scanner.nextLine();
         int[] numArray = makeArray(input);
         System.out.println(dynamicProgramming(numArray));
-
     }
     static int[] makeArray(String str){
         StringTokenizer token = new StringTokenizer(str," ");
-        int[] nums = new int[token.countTokens()+1];
-        int i = 0;
+        int[] nums = new int[token.countTokens()+1]; int i = 0;
         while(token.hasMoreTokens()){
             nums[i++] = Integer.parseInt(token.nextToken());
         }
         nums[i] = 0;
-
         return nums;
     }
     static int dynamicProgramming(int[] input){
