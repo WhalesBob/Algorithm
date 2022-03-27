@@ -9,21 +9,22 @@ public class Q23631 {
         int repeat = Integer.parseInt(str);
         for(int i = 0; i < repeat; i++){
             String[] input = br.readLine().split(" ");
-            long before = System.currentTimeMillis();
             int n = Integer.parseInt(input[0]);
             int k = Integer.parseInt(input[1]);
             int leftMeter = (n-1) -addAll(k,n);
 
             String output;
             if(location > 0){
-                output = String.format("%d L\n", location-leftMeter);
+                output = String.format("%d L", location-leftMeter);
             }else{
-                output = String.format("%d R\n", location+leftMeter);
+                output = String.format("%d R", location+leftMeter);
             }
-            print(output,bw);
-            String time = String.format("%d", System.currentTimeMillis()-before);
-            print(time,bw);
+            bw.write(output);
+            if(i < repeat -1){
+                bw.write("\n");
+            }
         }
+        bw.flush();
         bw.close();
     }
     static int addAll(int k, int N){
@@ -35,9 +36,5 @@ public class Q23631 {
             location *= -1;
         }
         return sum;
-    }
-    static void print(String str,BufferedWriter bw) throws IOException{
-        bw.write(str);
-        bw.flush();
     }
 }

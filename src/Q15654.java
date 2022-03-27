@@ -18,13 +18,14 @@ public class Q15654 {
 
         for(int i = 0; i < permutationArray.size(); i++){
             for(int j = 0; j < permutationArray.get(i).length; j++){
-                print(Integer.toString(permutationArray.get(i)[j]),bw);
+                bw.write(Integer.toString(permutationArray.get(i)[j]));
                 if(j < permutationArray.get(i).length -1){
-                    print(" ",bw);
+                    bw.write(" ");
                 }
             }
-            print("\n",bw);
+            bw.write("\n");
         }
+        bw.flush();
         bw.close();
     }
     static ArrayList<Integer> convertToArray(BufferedReader br) throws IOException {
@@ -58,9 +59,5 @@ public class Q15654 {
             }
         }
         return false;
-    }
-    static void print(String str,BufferedWriter bw) throws IOException{
-        bw.write(str);
-        bw.flush();
     }
 }
