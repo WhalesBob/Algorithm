@@ -1,4 +1,4 @@
-package AdvancedPS_Class;
+package AdvancedPS_Class.week5th;
 
 import java.util.Scanner;
 
@@ -47,8 +47,10 @@ public class P5_5_DeleteNodeOfBST {
         boolean isLeftInBound = (2 * deleteIndex < treeArray.length);
         boolean isRightInBound = (2 * deleteIndex + 1 < treeArray.length);
 
-        boolean isLeftNotNull = isLeftInBound && (treeArray[2 * deleteIndex] != 0);
-        boolean isRightNotNull = isRightInBound && (treeArray[2 * deleteIndex + 1] != 0);
+        boolean isLeftNotNull = isLeftInBound &&
+                (treeArray[2 * deleteIndex] != 0);
+        boolean isRightNotNull = isRightInBound &&
+                (treeArray[2 * deleteIndex + 1] != 0);
 
         boolean noChild = !(isLeftNotNull || isRightNotNull);
         boolean twoChild = (isLeftNotNull && isRightNotNull);
@@ -81,7 +83,8 @@ public class P5_5_DeleteNodeOfBST {
         int rightMaxDepth = (int)log2(rightMin);
 
         while(true){
-            if((leftMax * 2 + 1 < treeArray.length) && (treeArray[leftMax * 2 + 1] != 0)){
+            if((leftMax * 2 + 1 < treeArray.length) &&
+                    (treeArray[leftMax * 2 + 1] != 0)){
                 leftMax = leftMax * 2 + 1;
                 leftMaxDepth++;
             }else{
@@ -117,7 +120,8 @@ public class P5_5_DeleteNodeOfBST {
         }
 
         for(int i = 1; i <= newLength; i++){
-            System.out.printf("%s ",(treeArray[i] == 0) ? "null" : Integer.toString(treeArray[i]));
+            System.out.printf("%s ",(treeArray[i] == 0) ?
+                    "null" : Integer.toString(treeArray[i]));
         }
     }
 }

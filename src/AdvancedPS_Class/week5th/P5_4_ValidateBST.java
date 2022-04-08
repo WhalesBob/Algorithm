@@ -1,4 +1,4 @@
-package AdvancedPS_Class;
+package AdvancedPS_Class.week5th;
 
 import java.util.Scanner;
 
@@ -25,16 +25,22 @@ public class P5_4_ValidateBST {
             right = isValid(node.rightChild);
         }
 
-        int leftNumMax = (node.leftChild == null) ? node.data : node.leftChild.maxData;
-        int rightNumMax = (node.rightChild == null) ? node.data : node.rightChild.maxData;
-        int leftNumMin = (node.leftChild == null) ? node.data : node.leftChild.minData;
-        int rightNumMin = (node.rightChild == null) ? node.data : node.rightChild.minData;
+        int leftNumMax = (node.leftChild == null) ?
+                node.data : node.leftChild.maxData;
+        int rightNumMax = (node.rightChild == null) ?
+                node.data : node.rightChild.maxData;
+        int leftNumMin = (node.leftChild == null) ?
+                node.data : node.leftChild.minData;
+        int rightNumMin = (node.rightChild == null) ?
+                node.data : node.rightChild.minData;
         node.maxData = Math.max(leftNumMax,rightNumMax);
         node.minData = Math.min(leftNumMin,rightNumMin);
 
         boolean isLeaf = (node.leftChild == null) && (node.rightChild == null);
-        boolean smallerThanRight = (node.rightChild != null) && (node.data < node.rightChild.minData);
-        boolean biggerThanLeft = (node.leftChild != null) && (node.data > node.leftChild.maxData);
+        boolean smallerThanRight = (node.rightChild != null)
+                && (node.data < node.rightChild.minData);
+        boolean biggerThanLeft = (node.leftChild != null)
+                && (node.data > node.leftChild.maxData);
         boolean previous = left && right;
 
         if(isLeaf){

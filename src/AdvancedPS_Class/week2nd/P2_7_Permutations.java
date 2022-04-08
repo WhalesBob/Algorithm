@@ -1,4 +1,4 @@
-package AdvancedPS_Class;
+package AdvancedPS_Class.week2nd;
 
 import java.util.*;
 

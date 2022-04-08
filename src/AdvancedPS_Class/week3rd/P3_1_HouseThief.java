@@ -1,4 +1,4 @@
-package AdvancedPS_Class;
+package AdvancedPS_Class.week3rd;
 
 import java.util.Arrays;
 import java.util.Scanner;

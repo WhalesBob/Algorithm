@@ -1,4 +1,4 @@
-package AdvancedPS_Class;
+package AdvancedPS_Class.week5th;
 
 import sun.misc.Queue;
 import java.util.Scanner;
@@ -7,7 +7,8 @@ public class P5_0_ForMakingTreeNode {
 
     String[][] getInput(Scanner scanner){ // 3,5번 입력
         String[] input = scanner.nextLine().split(" ");
-        String[] orders = deleteBrackets(deleteBrackets(input[2],false),true).split(",");
+        String[] orders = deleteBrackets(deleteBrackets(input[2],false),
+                true).split(",");
 
         String[][] output = new String[2][];
         output[0] = orders;
@@ -103,3 +104,13 @@ class TreeNode{
         System.out.printf("%d ",this.data);
     }
 }
+
+
+
+
+
+
+
+
+
+
