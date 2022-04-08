@@ -11,8 +11,7 @@ public class P5_5_DeleteNodeOfBST {
         treeArray = makeTreeAsArray(input[0]);
         int deleteIndex = findNode(Integer.parseInt(input[1][0]));
         deleteNode(deleteIndex);
-        // find, delete 함수 만들어야 함.
-
+        printTreeArray();
     }
     static int[] makeTreeAsArray(String[] input){
         int[] treeArray = new int[input.length+1];
@@ -69,16 +68,56 @@ public class P5_5_DeleteNodeOfBST {
         }else{
             childIndex = 2*deleteIndex + 1;
         }
-
-        swap(deleteIndex, childIndex);
+        swapAndDelete(deleteIndex,childIndex);
+    }
+    static void swapAndDelete(int deleteIndex, int childIndex){
+        treeArray[deleteIndex] = treeArray[childIndex];
         treeArray[childIndex] = 0;
     }
-    static void swap(int deleteIndex, int childIndex){
-        int temp = treeArray[deleteIndex];
-        treeArray[deleteIndex] = treeArray[childIndex];
-        treeArray[childIndex] = temp;
-    }
     static void deleteBetweenTwoChild(int deleteIndex){
+        int leftMax = 2 * deleteIndex;
+        int rightMin = 2 * deleteIndex + 1;
+        int leftMaxDepth = (int)log2(leftMax);
+        int rightMaxDepth = (int)log2(rightMin);
 
+        while(true){
+            if((leftMax * 2 + 1 < treeArray.length) && (treeArray[leftMax * 2 + 1] != 0)){
+                leftMax = leftMax * 2 + 1;
+                leftMaxDepth++;
+            }else{
+                break;
+            }
+        }
+
+        while(true){
+            if((rightMin * 2 < treeArray.length) && (treeArray[rightMin * 2] != 0)){
+                rightMin *= 2;
+                rightMaxDepth++;
+            }else{
+                break;
+            }
+        }
+
+        if(leftMaxDepth > rightMaxDepth){
+            swapAndDelete(deleteIndex,leftMax);
+        }else{
+            swapAndDelete(deleteIndex,rightMin);
+        }
+    }
+    static double log2(int value){
+        return (Math.log(value) / Math.log(2));
+    }
+    static void printTreeArray(){
+        int newLength = treeArray.length;
+        for(int i = treeArray.length - 1; i >= 0; i--){
+            if(treeArray[i] != 0){
+                newLength = i;
+                break;
+            }
+        }
+
+        for(int i = 1; i <= newLength; i++){
+            System.out.printf("%s ",(treeArray[i] == 0) ? "null" : Integer.toString(treeArray[i]));
+        }
     }
 }
