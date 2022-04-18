@@ -32,7 +32,7 @@ public class Strassen {
         for(int i = 0; i < powerOfTwo; i++){
             for(int j = 0; j < powerOfTwo; j++){
                 if((i < n) && (j < n)){
-                    matrix[i][j] = scanner.nextInt();
+                    matrix[i][j] = 1; // Midterm Modify
                 }else{
                     matrix[i][j] = 0;
                 }

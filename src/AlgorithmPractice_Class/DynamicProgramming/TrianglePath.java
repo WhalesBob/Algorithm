@@ -4,12 +4,15 @@ import java.util.Scanner;
 
 public class TrianglePath {
     static TriangleInfo[][] pathArray;
+    static int count; //Midterm Modify
     public static void main(String[] args) {
+        count = 1;//Midterm Modify
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int[][] triangle = setTriangle(n,scanner);
         System.out.println(calculateMax(n,triangle));
         printPath(triangle);
+        System.out.printf("\n%d",count);//Midterm Modify
     }
     static int[][] setTriangle(int size,Scanner scanner){
         int[][] triangle = new int[size][];
@@ -49,6 +52,9 @@ public class TrianglePath {
             System.out.print(triangle[row][col]);
             if((path.direction == 'R') ||(path.direction == 'B')){
                 System.out.print(" ");
+                if(path.direction == 'B'){//Midterm Modify
+                    count++;//Midterm Modify
+                }//Midterm Modify
                 path = pathArray[++row][++col];
             }else if(path.direction == 'L'){
                 System.out.print(" ");

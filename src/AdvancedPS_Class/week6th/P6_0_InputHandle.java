@@ -6,7 +6,8 @@ public class P6_0_InputHandle {
     static int numOfNode;
     int[][] inputEdges(Scanner scanner){
         String[] input = scanner.nextLine().split(" ");
-        numOfNode = Integer.parseInt(deleteFrontAndBack(input[2],false,true));
+        numOfNode =
+                Integer.parseInt(deleteFrontAndBack(input[2],false,true));
 
         return inputHandling(input[5]);
     }
@@ -21,11 +22,12 @@ public class P6_0_InputHandle {
         return builder.toString();
     }
     int[][] inputHandling(String input){
-        String[] handling = deleteFrontAndBack(input,true,true).split("],");
+        String[] handling =
+                deleteFrontAndBack(input,true,true).split("],");
         for(int i = 0; i < handling.length-1; i++){
             handling[i] = deleteFrontAndBack(handling[i],true,false);
         }
-        handling[handling.length-1] = deleteFrontAndBack(handling[handling.length-1],true,true);
+        handling[handling.length-1] = deleteFrontAndBack(handling[handling.length-1], true,true);
 
         int[][] output = new int[handling.length][2];
         for(int i = 0; i < handling.length; i++){
@@ -38,3 +40,12 @@ public class P6_0_InputHandle {
         return output;
     }
 }
+
+
+
+
+
+
+
+
+
