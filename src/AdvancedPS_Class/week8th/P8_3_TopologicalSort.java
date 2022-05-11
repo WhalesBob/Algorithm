@@ -42,7 +42,7 @@ public class P8_3_TopologicalSort {
             System.out.printf("%d ",item);
             for(int j = 0; j < list.length; j++){
                 if(list[j].contains(item)){
-                    list[j].remove(list[j].indexOf(item));
+                    list[j].remove((Integer)item);
                 }
             }
         }

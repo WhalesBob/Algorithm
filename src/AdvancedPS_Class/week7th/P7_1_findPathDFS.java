@@ -19,7 +19,6 @@ public class P7_1_findPathDFS {
         int destination = scanner.nextInt();
 
         isConnected(source,destination,n,graph);
-
     }
     static int[][] makeGraphArray(Scanner scanner,int size){
         int[][] graphArray = new int[size][size];
@@ -73,5 +72,4 @@ public class P7_1_findPathDFS {
 
         System.out.println(visited[destination]);
     }
-
 }

@@ -30,10 +30,10 @@ public class P7_3_MST {
             Vertex vertex = new Vertex(Integer.parseInt(getOneString[0]),Integer.parseInt(getOneString[1]));
             output.add(vertex);
         }
-        String[] getOneString = input.deleteBrackets(stringArray[stringArray.length-1],true,true).split(",");
+        String[] getOneString =
+                input.deleteBrackets(stringArray[stringArray.length-1],true,true).split(",");
         Vertex vertex = new Vertex(Integer.parseInt(getOneString[0]),Integer.parseInt(getOneString[1]));
         output.add(vertex);
-
         return output;
     }
     static ArrayList<Edges> makeList(ArrayList<Vertex> vertexList){
@@ -52,7 +52,7 @@ public class P7_3_MST {
             if(find(edge.A.ID) != find(edge.B.ID)){
                 sum += edge.weight;
                 union(edge.A.ID,edge.B.ID);
-                System.out.printf("%d %d\n",edge.A.ID,edge.B.ID);
+                //System.out.printf("%d %d\n",edge.A.ID,edge.B.ID);
                 count++;
             }
             if(count == parent.length -1){
