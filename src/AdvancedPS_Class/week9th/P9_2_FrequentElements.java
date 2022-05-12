@@ -11,9 +11,9 @@ public class P9_2_FrequentElements {
         int k = scanner.nextInt();
 
         ImplementingHeap heap = new ImplementingHeap(false);
-        for(int i = 0; i < list.size(); i++){
-            HeapElement element = new HeapElement(list.get(i).data,true);
-            element.compareData = list.get(i).frequency;
+        for (Pair pair : list) {
+            HeapElement element = new HeapElement(pair.data, true);
+            element.compareData = pair.frequency;
             heap.insertInHeap(element);
         }
 
@@ -25,15 +25,15 @@ public class P9_2_FrequentElements {
         ArrayList<Pair> pairs = new ArrayList<>();
         System.out.print("nums = ");
         String[] input = scanner.next().split(",");
-        for(int i = 0; i < input.length; i++){
-            int value = Integer.parseInt(input[i]);
-            if(pairs.isEmpty()){
+        for (String s : input) {
+            int value = Integer.parseInt(s);
+            if (pairs.isEmpty()) {
                 pairs.add(new Pair(value));
-            }else{
-                Pair item = containedItem(value,pairs);
-                if(item != null){
+            } else {
+                Pair item = containedItem(value, pairs);
+                if (item != null) {
                     item.frequency++;
-                }else{
+                } else {
                     pairs.add(new Pair(value));
                 }
             }
@@ -41,9 +41,9 @@ public class P9_2_FrequentElements {
         return pairs;
     }
     static Pair containedItem(int value, ArrayList<Pair> pairs){
-        for(int i = 0; i < pairs.size(); i++){
-            if(value == pairs.get(i).data){
-                return pairs.get(i);
+        for (Pair pair : pairs) {
+            if (value == pair.data) {
+                return pair;
             }
         }
         return null;

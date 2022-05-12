@@ -13,8 +13,8 @@ public class P9_1_ConnectSticks {
         heap = new ImplementingHeap(true);
         String[] input = scanner.next().split(",");
 
-        for(int i = 0; i < input.length; i++){
-            heap.insertInHeap(new HeapElement(Integer.parseInt(input[i]),true));
+        for (String s : input) {
+            heap.insertInHeap(new HeapElement(Integer.parseInt(s), true));
         }
     }
     static int getMinimumCost(){
