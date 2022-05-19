@@ -6,11 +6,12 @@ public class P9_1_ConnectSticks {
     static ImplementingHeap heap;
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.print("sticks = ");
         makeHeap(scanner);
         System.out.println(getMinimumCost());
     }
     static void makeHeap(Scanner scanner){
-        heap = new ImplementingHeap(true);
+        heap = new ImplementingHeap(true); // 오름차순인가?
         String[] input = scanner.next().split(",");
 
         for (String s : input) {
