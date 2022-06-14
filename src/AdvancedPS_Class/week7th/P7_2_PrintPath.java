@@ -36,8 +36,7 @@ public class P7_2_PrintPath {
                 graphArray[i][j] = (i == j) ? 0 : INF;
             }
         }
-        for(int i = 0; i < list.size(); i++){
-            Integer[] fromList = list.get(i);
+        for (Integer[] fromList : list) {
             graphArray[fromList[0]][fromList[1]] = 1;
         }
         return graphArray;

@@ -22,7 +22,7 @@ public class P8_1_Dijkstra {
         setInit(n,graph[k],k);
 
         try{
-            dijkstra(graph,n,k);
+            dijkstra(graph,n);
             touchTable[0] = new Check(0,0);
             Arrays.sort(touchTable, Comparator.reverseOrder());
             System.out.println(touchTable[0].distance);
@@ -53,10 +53,9 @@ public class P8_1_Dijkstra {
         }
         touchTable[start].isChecked = true;
     }
-    static void dijkstra(int[][] graph,int n,int k) throws ArrayIndexOutOfBoundsException {
+    static void dijkstra(int[][] graph,int n) throws ArrayIndexOutOfBoundsException {
         for(int i = 1; i < n; i++){
             int minIndex = findMinimum();
-            int from = touchTable[minIndex].from, weight = graph[from][minIndex];
             touchTable[minIndex].isChecked = true;
             compareAndWrite(graph,minIndex);
         }

@@ -1,4 +1,4 @@
-package AlgorithmClass_Final.backtracking;
+package AlgorithmPractice_Class.AlgorithmClass_Final.backtracking;
 
 import java.math.BigInteger;
 import java.util.Scanner;

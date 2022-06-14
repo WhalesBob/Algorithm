@@ -1,4 +1,4 @@
-package AlgorithmClass_Final.greedy;
+package AlgorithmPractice_Class.AlgorithmClass_Final.greedy;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;

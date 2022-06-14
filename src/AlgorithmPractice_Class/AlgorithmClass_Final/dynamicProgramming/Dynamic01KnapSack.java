@@ -1,4 +1,4 @@
-package AlgorithmClass_Final.dynamicProgramming;
+package AlgorithmPractice_Class.AlgorithmClass_Final.dynamicProgramming;
 
 import java.util.*;
 

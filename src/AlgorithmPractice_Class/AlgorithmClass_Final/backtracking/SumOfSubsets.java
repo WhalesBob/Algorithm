@@ -1,6 +1,7 @@
-package AlgorithmClass_Final.backtracking;
+package AlgorithmPractice_Class.AlgorithmClass_Final.backtracking;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class SumOfSubsets {
@@ -15,11 +16,12 @@ public class SumOfSubsets {
         elements = getList(scanner,n); // n개의 정수 받기
         history = new ArrayList<>(); // 되는 애들 history 받기.
 
+        Arrays.sort(elements);
         int total = 0;
         for(int i = 0; i < elements.length; i++){
             total += elements[i]; // total 에다가 넣을 수 있는 전체 합을 넣어버리기.
         }
-        sumOfSubsets(0,new SubsetNode(total)); // backtracking 시작.(0부터 시작)(새로운 SubsetNode 집어넣어주기)
+        sumOfSubsets(1,new SubsetNode(total)); // backtracking 시작.(0부터 시작)(새로운 SubsetNode 집어넣어주기)
         System.out.println(history.size());
 
         for(int i = 0; i < history.size(); i++){
@@ -62,7 +64,7 @@ public class SumOfSubsets {
         return (i < elements.length) && ((node.weight + node.totalLeft >= W) && (node.weight == W || node.weight + elements[i] <= W));
     }
 }
-class SubsetNode implements Cloneable{ //
+class SubsetNode implements Cloneable, Comparable<SubsetNode> { //
     int weight;
     ArrayList<Integer> list;
     int totalLeft;
@@ -86,5 +88,10 @@ class SubsetNode implements Cloneable{ //
         this.list.add(elements); // 맞네
         totalLeft -= elements; // 남은 total 에서 빼주기
         weight += elements; // weight 에 추가되면 당연히 더해줘야함.
+    }
+
+    @Override
+    public int compareTo(SubsetNode o) {
+        return (this.weight) > (o.weight) ? 1 : -1;
     }
 }

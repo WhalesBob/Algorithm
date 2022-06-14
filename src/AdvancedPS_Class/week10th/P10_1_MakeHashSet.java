@@ -5,8 +5,41 @@ import java.util.Scanner;
 public class P10_1_MakeHashSet {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String[] orders = scanner.nextLine().split(",");
+        String[] orders = scanner.nextLine().split(" ");
+        int[] integers = getInteger(scanner);
+        MyHashSet hashSet = null;
 
+        try{
+            for(int i = 0; i < orders.length; i++){
+                switch(orders[i]){
+                    case "MyHashSet":
+                        hashSet = new MyHashSet();
+                        break;
+                    case "add" :
+                        hashSet.add(integers[i]);
+                        break;
+                    case "contains" :
+                        boolean result = hashSet.contains(integers[i]);
+                        break;
+                    case "remove" :
+                        hashSet.remove(integers[i]);
+                        break;
+                    default:
+                        System.out.print("Error");
+                }
+            }
+        }catch (NullPointerException e){
+            System.out.println("Error");
+        }
+    }
+    static int[] getInteger(Scanner scanner){
+        String[] input = scanner.nextLine().split(",");
+        int[] output = new int[input.length+1];
+        output[0] = 0;
+        for(int i = 1; i < output.length; i++){
+            output[i] = Integer.parseInt(input[i-1]);
+        }
+        return output;
     }
 }
 class MyHashSet {
@@ -15,6 +48,7 @@ class MyHashSet {
 
     public MyHashSet() {
         hashSet = new Node[modular];
+        System.out.print("null ");
     }
 
     void add(int key){
@@ -26,26 +60,29 @@ class MyHashSet {
             for(node = hashSet[index]; node.link != null; node = node.link);
             node.link = new Node(key);
         }
+        System.out.print("null ");
     }
-
     boolean contains(int key){
         int index = hashFunction(key);
         for(Node node = hashSet[index]; node != null; node = node.link){
             if(node.value == key){
+                System.out.print("true ");
                 return true;
             }
         }
+        System.out.print("false ");
         return false;
     }
 
     void remove(int key){
+        System.out.print("null ");
         int index = hashFunction(key);
         if(hashSet[index].value == key){
             hashSet[index] = hashSet[index].link;
         }else{
             for(Node node = hashSet[index]; node.link != null; node = node.link){
                 if(node.link.value == key){
-                    removeProcess(node);
+                    Node.removeProcess(node);
                 }
             }
         }
@@ -53,16 +90,5 @@ class MyHashSet {
     int hashFunction(int value){
         return value % modular;
     }
-    static void removeProcess(Node node){
-        node.link = (node.link.link == null) ? null : node.link.link;
-    }
 }
-class Node{
-    int value;
-    Node link;
 
-    public Node(int value) {
-        this.value = value;
-        this.link = null;
-    }
-}
