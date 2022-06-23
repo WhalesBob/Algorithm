@@ -1,3 +1,5 @@
+package boj;
+
 import java.io.*;
 
 public class Q23631 {
