@@ -29,10 +29,10 @@ int main(void){
     scanf("%d",&n);
     int* inOrder = makeArray(n);
     int* postOrder = makeArray(n);
-    
+
     TreePointer head = makeTree(inOrder,postOrder,0,n);
     printPreOrder(head);
-    
+
     return 0;
 }
 int* makeArray(int size){
@@ -53,7 +53,7 @@ TreePointer makeTree(int* inOrder, int* postOrder, int start, int end){
         int divideIndex = findIndex(inOrder, headNum, start, end);
         node->leftChild = makeTree(inOrder, postOrder, start, divideIndex-1);
         node->rightChild = makeTree(inOrder, postOrder, divideIndex+1, end);
-    
+
         return node;
     }
 }
@@ -72,7 +72,7 @@ TreePointer makeTreeNode(int n){
     p->leftChild = NULL;
     p->rightChild = NULL;
 
-    return p; 
+    return p;
 }
 void printPreOrder(TreePointer node){
     printf("%d ", node->data);
