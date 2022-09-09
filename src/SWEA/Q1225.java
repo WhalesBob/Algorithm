@@ -8,10 +8,10 @@ public class Q1225 {
         Scanner sc = new Scanner(System.in);
         int T = 10;
         int numbers = 8;
-        int n;
+        Integer n;
 
         for(int test_case = 1; test_case <= T; test_case++){
-            Queue queue = new Queue();
+            Queue<Integer> queue = new Queue();
             sc.nextInt();
 
             for(int i = 0; i < numbers; i++){
@@ -31,23 +31,5 @@ public class Q1225 {
             }
             System.out.println("");
         }
-    }
-}
-class Queue{
-
-    LinkedList<Integer> queue;
-
-    public Queue() {
-        queue = new LinkedList<>();
-    }
-
-    void enqueue(int n){
-        queue.addLast(n);
-    }
-
-    int dequeue(){
-        int n = queue.get(0);
-        queue.removeFirst();
-        return n;
     }
 }
